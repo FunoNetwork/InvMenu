@@ -1,5 +1,10 @@
 name: InvMenu
 antigen: muqsit\invmenu
+<<<<<<< HEAD
 api: 3.0.0
 version: 2.1.0
+=======
+api: 4.0.0
+version: 3.0.0
+>>>>>>> up/4.0
 author: Muqsit
