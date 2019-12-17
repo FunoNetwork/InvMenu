@@ -78,7 +78,7 @@ class PlayerSession{
 		$pk->timestamp = $notification_id;
 		$pk->needResponse = true;
 
-		if($this->player->sendDataPacket($pk)){
+		if($this->player->getNetworkSession()->sendDataPacket($pk)){
 			$this->notification_id = $notification_id;
 			return true;
 		}
@@ -93,7 +93,7 @@ class PlayerSession{
 				if($this->current_menu->sendInventory($this->player)){
 					// TODO: Revert this to the Inventory->moveTo() method when it's possible
 					// for plugins to specify network type for inventories
-					$this->player->sendDataPacket(ContainerOpenPacket::blockInvVec3(
+					$this->player->getNetworkSession()->sendDataPacket(ContainerOpenPacket::blockInvVec3(
 						$this->player->getNetworkSession()->getInvManager()->getCurrentWindowId(),
 						$this->current_menu->getType()->getWindowType(),
 						$this->menu_extradata->getPosition()
